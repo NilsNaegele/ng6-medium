@@ -12,7 +12,7 @@ import { map, catchError, distinctUntilChanged } from 'rxjs/operators';
 })
 export class UserService {
 
-  private currentUserSubject = new BehaviorSubject<User>(new User());
+  private currentUserSubject = new BehaviorSubject<User>({} as User);
   public currentUser = this.currentUserSubject.asObservable().pipe(distinctUntilChanged());
 
   private isAuthenticatedSubject = new BehaviorSubject<boolean>(false);

@@ -5,6 +5,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { ListErrorsComponent } from './list-errors/list-errors.component';
 import { ShowAuthedDirective } from './show-authed.directive';
+import { ArticleListComponent } from './article-helpers/article-list/article-list.component';
+import { ArticleMetaComponent } from './article-helpers/article-meta/article-meta.component';
+import { ArticlePreviewComponent } from './article-helpers/article-preview/article-preview.component';
 
 
 @NgModule({
@@ -15,7 +18,7 @@ import { ShowAuthedDirective } from './show-authed.directive';
         HttpClientModule,
         RouterModule
     ],
-    declarations: [ ListErrorsComponent, ShowAuthedDirective ],
+    declarations: [ ListErrorsComponent, ShowAuthedDirective, ArticleListComponent, ArticleMetaComponent, ArticlePreviewComponent ],
     exports: [
         CommonModule,
         FormsModule,
@@ -26,4 +29,4 @@ import { ShowAuthedDirective } from './show-authed.directive';
         RouterModule
     ]
 })
-export class SharedModule { }
+export class SharedModule {}

@@ -14,6 +14,6 @@ export class JwtService {
   }
 
   destroyToken(): void {
-    window.localStorage.removeItem['jwtToken'];
+    window.localStorage.removeItem('jwtToken');
   }
 }
