@@ -1,15 +1,23 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { Article } from '../../../core';
 
 @Component({
   selector: 'app-article-preview',
   templateUrl: './article-preview.component.html',
   styleUrls: ['./article-preview.component.css']
 })
-export class ArticlePreviewComponent implements OnInit {
+export class ArticlePreviewComponent {
+  @Input() article: Article;
 
-  constructor() { }
+  onToggleFavorite(favorited: boolean) {
+    this.article['favorited'] = favorited;
 
-  ngOnInit() {
+    if (favorited) {
+      this.article['favoritesCount']++;
+    } else {
+      this.article['favoriteCount']--;
+    }
+
   }
 
 }

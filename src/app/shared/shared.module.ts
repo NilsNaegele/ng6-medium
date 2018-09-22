@@ -8,6 +8,8 @@ import { ShowAuthedDirective } from './show-authed.directive';
 import { ArticleListComponent } from './article-helpers/article-list/article-list.component';
 import { ArticleMetaComponent } from './article-helpers/article-meta/article-meta.component';
 import { ArticlePreviewComponent } from './article-helpers/article-preview/article-preview.component';
+import { FavoriteButtonComponent } from './buttons/favorite-button/favorite-button.component';
+import { FollowButtonComponent } from './buttons/follow-button/follow-button.component';
 
 
 @NgModule({
@@ -18,7 +20,7 @@ import { ArticlePreviewComponent } from './article-helpers/article-preview/artic
         HttpClientModule,
         RouterModule
     ],
-    declarations: [ ListErrorsComponent, ShowAuthedDirective, ArticleListComponent, ArticleMetaComponent, ArticlePreviewComponent ],
+    declarations: [ ListErrorsComponent, ShowAuthedDirective, ArticleListComponent, ArticleMetaComponent, ArticlePreviewComponent, FavoriteButtonComponent, FollowButtonComponent ],
     exports: [
         CommonModule,
         FormsModule,

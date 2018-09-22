@@ -7,8 +7,8 @@ import { SharedModule, HeaderComponent, FooterComponent } from './shared';
 import { HomeModule } from './home/home.module';
 import { AuthModule } from './auth/auth.module';
 import { CoreModule } from './core';
+import { AppRoutingModule } from './app-routing.module';
 
-const rootRouting: ModuleWithProviders = RouterModule.forRoot([], { useHash: true });
 
 @NgModule({
   declarations: [
@@ -22,7 +22,7 @@ const rootRouting: ModuleWithProviders = RouterModule.forRoot([], { useHash: tru
     SharedModule,
     HomeModule,
     CoreModule,
-    rootRouting
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]

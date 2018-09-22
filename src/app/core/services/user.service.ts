@@ -6,6 +6,7 @@ import { User } from '../models';
 
 import { Observable, BehaviorSubject } from 'rxjs';
 import { map, catchError, distinctUntilChanged } from 'rxjs/operators';
+import { JwtService } from './jwt.service';
 
 @Injectable({
   providedIn: 'root'
@@ -18,11 +19,30 @@ export class UserService {
   private isAuthenticatedSubject = new BehaviorSubject<boolean>(false);
   public isAuthenticated = this.isAuthenticatedSubject.asObservable();
 
-  constructor(private http: HttpClient, private apiService: ApiService) { }
+  constructor(private http: HttpClient,
+              private apiService: ApiService,
+              private jwtService: JwtService) { }
+
+  populate() {
+    if (this.jwtService.getToken()) {
+          this.apiService.get('/user').subscribe(
+            data => this.setAuth(data),
+            error => this.purgeAuth()
+          );
+    } else {
+      this.purgeAuth();
+    }
+  }
 
   setAuth(user: User) {
     this.currentUserSubject.next(user);
     this.isAuthenticatedSubject.next(true);
+  }
+
+  purgeAuth() {
+    this.jwtService.destroyToken();
+    this.currentUserSubject.next({} as User);
+    this.isAuthenticatedSubject.next(false);
   }
 
   attemptAuth(type, credentials): Observable<User> {
@@ -37,6 +57,14 @@ export class UserService {
 
   getCurrentUser(): User {
     return this.currentUserSubject.value;
+  }
+
+  update(user): Observable<User> {
+    return this.apiService.put('/user', { user })
+                          .pipe(map(data => {
+                            this.currentUserSubject.next(data.user);
+                            return data.user;
+                          }));
   }
 
 }
