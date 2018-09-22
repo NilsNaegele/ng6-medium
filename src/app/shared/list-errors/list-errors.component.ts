@@ -13,7 +13,7 @@ export class ListErrorsComponent {
   @Input()
   set errors(errorList: Errors) {
     this.formattedErrors = [];
-
+    if (!errorList) { return; }
     if (errorList.errors) {
       for (const field in errorList.errors) {
         if (errorList.hasOwnProperty(field)) {
