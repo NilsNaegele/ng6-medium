@@ -1,3 +1,9 @@
-<p>
-  follow-button works!
-</p>
+<button class="btn btn-sm action-button"
+        [ngClass]="{'disabled': isSubmitting,
+                    'btn-outline-secondary': !profile.following,
+                    'btn-secondary': profile.following}"
+                    (click)="toggleFollowing()">
+<i class="ion-plus-round"></i>
+&nbsp;
+{{ profile.following ? 'Unfollow' : 'Follow' }} {{ profile.username }}                  
+</button> 

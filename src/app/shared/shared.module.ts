@@ -5,9 +5,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { ListErrorsComponent } from './list-errors/list-errors.component';
 import { ShowAuthedDirective } from './show-authed.directive';
-import { ArticleListComponent } from './article-helpers/article-list/article-list.component';
-import { ArticleMetaComponent } from './article-helpers/article-meta/article-meta.component';
-import { ArticlePreviewComponent } from './article-helpers/article-preview/article-preview.component';
+import { ArticleListComponent, ArticleMetaComponent, ArticlePreviewComponent } from './article-helpers';
 import { FavoriteButtonComponent } from './buttons/favorite-button/favorite-button.component';
 import { FollowButtonComponent } from './buttons/follow-button/follow-button.component';
 
@@ -20,9 +18,21 @@ import { FollowButtonComponent } from './buttons/follow-button/follow-button.com
         HttpClientModule,
         RouterModule
     ],
-    declarations: [ ListErrorsComponent, ShowAuthedDirective, ArticleListComponent, ArticleMetaComponent, ArticlePreviewComponent, FavoriteButtonComponent, FollowButtonComponent ],
+    declarations: [
+        ListErrorsComponent,
+        ShowAuthedDirective,
+        ArticleListComponent,
+        ArticleMetaComponent,
+        ArticlePreviewComponent,
+        FavoriteButtonComponent,
+        FollowButtonComponent ],
     exports: [
+        ArticleListComponent,
+        ArticleMetaComponent,
+        ArticlePreviewComponent,
         CommonModule,
+        FavoriteButtonComponent,
+        FollowButtonComponent,
         FormsModule,
         ReactiveFormsModule,
         HttpClientModule,

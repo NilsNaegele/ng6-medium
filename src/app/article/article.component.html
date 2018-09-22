@@ -2,7 +2,7 @@
   <div class="banner">
     <div class="container">
       <h1>{{ article.title }}</h1>
-      <!-- <app-article-meta [article]>
+      <app-article-meta [article]>
           <span [hidden]="!canModify">
             <a class="btn btn-sm btn-outline-secondary"
                [routerLink]="['/editor', article.slug]">
@@ -16,7 +16,7 @@
           <span [hidden]="canModify">
             <app-follow-button
             [profile]="article.author"
-            (toggle)="onToggleFollow($event)">
+            (toggle)="onToggleFollowing($event)">
             </app-follow-button>
             <app-favorite-button
             [article]="article"
@@ -25,7 +25,7 @@
             <span class="counter">{{ article.favoritesCount }}</span>
             </app-favorite-button>
           </span>
-      </app-article-meta> -->
+      </app-article-meta>
 
     </div>
   </div>
@@ -42,7 +42,7 @@
     </div>
     <hr>
     <div class="article-actions">
-      <!-- <app-article-meta [article]="article">
+      <app-article-meta [article]="article">
             <span [hidden]="!canModify">
                 <a class="btn btn-sm btn-outline-secondary"
                 [routerLink]="['/editor', article.slug]">
@@ -57,23 +57,23 @@
             <span [hidden]="canModify">
               <app-follow-button
               [profile]="article.author"
-              (toggle)="onFollowing($event)">
+              (toggle)="onToggleFollowing($event)">
               </app-follow-button>
               <app-favorite-button
               [article]="article"
-              (toggle)="onToggleFavorite($event">
+              (toggle)="onToggleFavorite($event)">
                 {{ article.favorited ? 'Unfavorite' : 'Favorite'}} Article
                 <span class="counter">
                   {{ article.favoritesCount }}
                 </span>
               </app-favorite-button>
             </span>
-      </app-article-meta> -->
+      </app-article-meta>
     </div>
       <div class="row">
         <div class="col-xs-12 col-md-8 offset-md-2">
           <div *appShowAuthed="true">
-              <app-list-errors [errors]="CommentFormErrors">
+              <app-list-errors [errors]="commentFormErrors">
               </app-list-errors>
               <form class="card comment-form" (ngSubmit)="addComment()">
                 <fieldset [disabled]="isSubmitting">
@@ -98,10 +98,10 @@
                 <a [routerLink]="['/register']">Sign up</a>
                  to add a comment to this article.
           </div>
-          <!-- <app-article-comment *ngFor="let comment of comments"
+          <app-article-comment *ngFor="let comment of comments"
                                 [comment]="comment"
                                 (deleteComment)="onDeleteComment(comment)">
-          </app-article-comment> -->
+          </app-article-comment>
         </div>
       </div>
   </div>

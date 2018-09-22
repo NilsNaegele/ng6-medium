@@ -1,11 +1,11 @@
 <div class="article-preview">
       <app-article-meta [article]="article">
-            <!-- <app-favorite-button
+            <app-favorite-button
              [article]="article"
              (toggle)="onFavoriteToggle($event)"
              class="pull-xs-right">
             {{ article.favoritesCount }}
-            </app-favorite-button> -->
+            </app-favorite-button>
       </app-article-meta>
       <a [routerLink]="['/article', article.slug]" class="preview-link">
         <h1>{{ article.title }}</h1>
