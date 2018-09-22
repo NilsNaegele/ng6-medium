@@ -3,6 +3,14 @@ import { RouterModule, Routes, PreloadAllModules } from '@angular/router';
 
 const routes: Routes = [
     {
+        path: 'settings',
+        loadChildren: './settings/settings.module#SettingsModule'
+    },
+    {
+        path: 'editor',
+        loadChildren: './editor/editor.module#EditorModule'
+    },
+    {
         path: 'article',
         loadChildren: './article/article.module#ArticleModule'
     }
