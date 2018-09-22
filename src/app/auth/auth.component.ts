@@ -11,7 +11,7 @@ import { Errors, UserService } from '../core';
 export class AuthComponent implements OnInit {
   authType = '';
   title = '';
-  errors = new Errors();
+  errors: Errors = new Errors();
   isSubmitting = false;
   authForm: FormGroup;
 
@@ -42,8 +42,8 @@ export class AuthComponent implements OnInit {
     this.userService.attemptAuth(this.authType, credentials)
     .subscribe(
       data => this.router.navigateByUrl('/'),
-      error => {
-        this.errors = error;
+      err => {
+        this.errors = err;
         this.isSubmitting = false;
       }
     );
